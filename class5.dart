@@ -1,8 +1,9 @@
 
+import 'dart:async';
 
 void main(){
 
-  /*CONVERSION DE TIPO DE DATOS*/
+  /*CONCATENACION E INTERPOLACION*/
   
   int edad=20.2.toInt(); //De flotante oh double a entero
   edad=int.parse("25"); //De string a entero
@@ -12,5 +13,10 @@ void main(){
 
   String name=300.toString(); //De numero a string
   bool esCliente=false;
+
+  print("Hola"+name);//CONCATENACION
+
+  print("Hola ${name.length}");//INTERPOLACION
+  
   
 }
