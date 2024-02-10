@@ -10,5 +10,17 @@ void main()
   colores2.add("Gabriel");
   print(colores2); 
 
+  //Como recorrer la lista
 
+  for(int i=0; i<colores.length;i++)
+  {
+    print(colores[i]);
+  }
+
+  
+  for(String color in colores2){
+    print(color);
+  }
+  
+  colores2.forEach((String color)=>print(color));
 }
