@@ -3,22 +3,29 @@
 void main()
 {
   
-  bienvenida();
-  descuento();
+  bienvenida("Cristian de Jesus","Nuevo");
+  
   
 }
-
-bienvenida()
+//Las funciones tienen parametros
+bienvenida(String nombre, String tipo)
 {
- print("Bienvenido usuario, al curso de dart de CODIGOFACILITO");
+ print("$nombre bienvenido , al curso de dart de CODIGOFACILITO");
+
+ switch(tipo)
+ {
+    case "Nuevo":
+    descuento(tipo,10);
+    break;
+
+    case "Viejo":
+    descuento(tipo,30);
+    break;
+ }
 }
 
-descuento()
-{
-  int descuento =50;
-  int precio=1400;
-  double aplicarDescuento=(precio*descuento)/100;
-  double precioTotal=precio-aplicarDescuento;
 
-  print(precioTotal);
+descuento(String tipo,int descuento)
+{
+  print("Por ser un usuario $tipo te ofrecemos un descuento de $descuento %");
 }
