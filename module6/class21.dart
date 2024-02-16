@@ -3,35 +3,45 @@
 void main()
 {
   //instancia de una clase 
-  Alumno Jesus=Alumno(nombre: "Jesus",apellido:"Gonzalez",edad: 23,telefono: "964446464",calificaciones: [18,17,18,18]);
-  print(Jesus.obtenerPromedio());
-  Alumno Jose=Alumno(nombre: "Jose",apellido: "Montaño",edad: 25,telefono: "+58454521545",calificaciones: [17,18,19,15]);
-  print(Jose.obtenerPromedio());
+    Alumno jesus = Alumno();
+  jesus.setNombre = "Jesus";
+  jesus.setCalificaciones = [9.0, 8.5, 7.0]; // Agrega calificaciones
+  jesus.obtenerPromedio(); // Imprime el promedio
+
+  Alumno jose = Alumno();
+  jose.setNombre = "Jose";
+  jose.setCalificaciones = [8.0, 7.5, 6.5]; // Agrega calificaciones
+  jose.obtenerPromedio(); // Imprime el promedio
   
 }
 
 //Esto es una clase
 class Alumno{
-  //Atributos
-  String nombre;
-  String apellido;
-  int edad;
-  String telefono;
-  List<double> calificaciones;
+  //Atributos publicos:
+  bool tieneBeca=false;
+  //Atributos _privados:
+  String _nombre="";
+  String _apellido="";
+  int _edad=0;
+  String _telefono="";
+  List<double> _calificaciones=const[];
 
-
+  //Getters y setters
+  get getNombre=>this._nombre;
+  set setNombre(String nombre)=>this._nombre=nombre;
+  List<double> get getCalificaciones=> this._calificaciones;
+  set setCalificaciones(List<double> calificaciones)=>this._calificaciones=calificaciones;
   //Metodos
-
   //Constructor
-  Alumno({this.nombre="",this.apellido="",this.edad=0,this.telefono="",this.calificaciones=const[]});
+  
   
   obtenerPromedio()
   {
-    print("El promedio del alumno ${this.nombre} es de ${this._calcularPromedio()} sobre 20.");
+    print("El promedio del alumno ${this._nombre} es de ${this._calcularPromedio()} sobre 10.");
   }
   //Modificador de acceso (_), para poder encapsular los datos del objeto
   _calcularPromedio()
   {
-    return this.calificaciones.reduce((value, element) => value+element)/this.calificaciones.length;
+    return this._calificaciones.reduce((value, element) => value+element)/this._calificaciones.length;
   }
 }
