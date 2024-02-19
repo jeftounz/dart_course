@@ -19,10 +19,23 @@ void main()
 
   pedro.obtenerRfc();
 
+  //La clase abstracta no se construye , sino que se utiliza para heredar a sus clases hijas
+  //atributos y metodos , es decir ,no podemos escribir el siguiente codigo:
+  // Persona persona = Persona();
 
 }
+
+//Esta es una clase interfaz
+class Escuela{
+  bienvenida()
+  {
+    
+  }
+}
+
+//El uso de "implements" es para heredar interfaces
 //Clase padre
-class Persona{
+abstract class Persona implements Escuela{
   String _nombre="";
   String _apellido="";
   int _edad=0;
@@ -51,6 +64,7 @@ class Alumno extends Persona{
   
   obtenerPromedio()
   {
+    bienvenida();
     print("El promedio del alumno ${this._nombre} es de ${this._calcularPromedio()} sobre 10.");
   }
   //Modificador de acceso (_), para poder encapsular los datos del objeto
@@ -58,6 +72,12 @@ class Alumno extends Persona{
   _calcularPromedio()
   {
     return this._calificaciones.reduce((value, element) => value+element)/this._calificaciones.length;
+  }
+
+  @override //Esto es una interfaz 
+  bienvenida() {
+    // TODO: implement bienvenida
+    print("Bienvenido alumno ${this._nombre}");
   }
 }
 
@@ -78,6 +98,7 @@ class Profesor extends Persona
   
   obtenerRfc()
   {
+    bienvenida();
     if(_rfc.isNotEmpty)
     {
       print("El profesor $_nombre tiene RFC que es $_rfc");
@@ -85,8 +106,12 @@ class Profesor extends Persona
     {
       print("El profesor $_nombre  NO tiene RFC que es $_rfc");
     }
-    
 
   }
   
+      @override //Esto es una interfaz 
+  bienvenida() {
+    // TODO: implement bienvenida
+    print("Bienvenido Profesor ${this._nombre}");
+  }
 }
