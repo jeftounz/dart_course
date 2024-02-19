@@ -81,8 +81,8 @@ class Alumno extends Persona{
   }
 }
 
-
-class Profesor extends Persona
+//El extend es para heredad atributos y metodos de persona, y el with para utilzar un mixing de validaciones
+class Profesor extends Persona with Validaciones
 {
   
   //Atributos _privados:
@@ -107,6 +107,7 @@ class Profesor extends Persona
       print("El profesor $_nombre  NO tiene RFC que es $_rfc");
     }
 
+    validarRFChomoclave(this._rfc);
   }
   
       @override //Esto es una interfaz 
@@ -114,4 +115,24 @@ class Profesor extends Persona
     // TODO: implement bienvenida
     print("Bienvenido Profesor ${this._nombre}");
   }
+}
+
+//Es para recibir atributos y metodos de n clases
+mixin Validaciones{
+
+  validarRFChomoclave( String rfc)
+  {
+    //Puedes colocarlo asi
+    /*if(rfc.length>=10)
+    {
+      print("RFC con homoclave");
+    }else
+    {
+      print("RFC sin homoclave");
+    }*/
+  //Oh asi 
+    print((rfc.length>10)?"RFC con homoclave":"RFC sin homoclave");
+    
+  }
+
 }
